@@ -17,21 +17,26 @@ export function PartnerLogos() {
           {partners.map((partner) => (
             <div
               key={partner.name}
-              className="flex h-24 items-center justify-center rounded-xl border bg-card px-4 py-3 grayscale transition-all hover:grayscale-0 hover:shadow-md"
+              className="flex flex-col items-center gap-3 rounded-xl border bg-card p-4 transition-shadow hover:shadow-md"
             >
-              {partner.logo ? (
-                <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  width={140}
-                  height={60}
-                  className="h-full w-auto object-contain"
-                />
-              ) : (
-                <span className="text-center text-sm font-bold tracking-wide text-foreground/80">
-                  {partner.name}
-                </span>
-              )}
+              <div className="flex h-16 w-full items-center justify-center overflow-hidden rounded-lg">
+                {partner.logo ? (
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={160}
+                    height={64}
+                    className="h-full w-auto max-w-full object-contain"
+                  />
+                ) : (
+                  <span className="text-center text-sm font-bold tracking-wide text-foreground/80">
+                    {partner.name}
+                  </span>
+                )}
+              </div>
+              <span className="text-center text-xs font-medium text-muted-foreground">
+                {partner.name}
+              </span>
             </div>
           ))}
         </AnimatedSection>
