@@ -212,7 +212,7 @@ export const services: Service[] = [
       "Đội ngũ chuyên gia khảo sát, nhận diện mối nguy tại từng công đoạn sản xuất, từ đó xây dựng biện pháp phòng ngừa, kế hoạch ứng phó sự cố và hoàn thiện hồ sơ an toàn lao động cho doanh nghiệp.",
     audience: [
       "Doanh nghiệp sản xuất, nhà máy cần đánh giá rủi ro định kỳ",
-      "Chủ đầu tư, nhà thầu xây dựng cần hồ sơ an toàn công trình",
+      "Doanh nghiệp trong khu công nghiệp cần hồ sơ an toàn lao động",
       "Doanh nghiệp chuẩn bị đánh giá, kiểm tra của cơ quan quản lý nhà nước",
     ],
     process: [
@@ -250,7 +250,7 @@ export const services: Service[] = [
       "Kiểm định kỹ thuật an toàn định kỳ và kiểm định lần đầu cho máy, thiết bị, vật tư có yêu cầu nghiêm ngặt về an toàn lao động, giúp doanh nghiệp vận hành đúng quy định và phòng ngừa sự cố.",
     audience: [
       "Nhà máy, khu công nghiệp sử dụng thiết bị có yêu cầu nghiêm ngặt về an toàn",
-      "Chủ đầu tư, nhà thầu cần kiểm định thiết bị thi công",
+      "Doanh nghiệp sản xuất cần kiểm định thiết bị trước khi đưa vào sử dụng",
       "Đơn vị vận hành thiết bị nâng, thiết bị áp lực, thiết bị điện",
     ],
     process: [

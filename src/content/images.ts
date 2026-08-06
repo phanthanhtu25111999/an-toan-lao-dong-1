@@ -1,36 +1,44 @@
-// Ảnh minh họa placeholder, lấy từ Unsplash (đã kiểm tra tồn tại).
-// Toàn bộ URL được gom một chỗ để sau này chỉ cần đổi giá trị (hoặc trỏ sang
-// ảnh nội bộ trong /public/images) khi công ty có ảnh thật, không cần sửa
-// từng component.
+// Ảnh minh họa. Ảnh thật của công ty đặt trong /public/images (xem README
+// trong thư mục đó); phần còn lại tạm dùng placeholder từ Unsplash cho tới
+// khi có ảnh thật thay thế. Gom một chỗ để sau này chỉ cần đổi giá trị ở đây,
+// không cần sửa từng component.
 
 function unsplash(id: string, width = 1600, quality = 80) {
   return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${width}&q=${quality}`;
 }
 
+// Ảnh thật do công ty cung cấp
+const real = {
+  lopHuanLuyen: "/images/trang-chu/lop-huan-luyen.jpg",
+  doiNgu: "/images/gioi-thieu/doi-ngu.jpg",
+  capCuuBanDau: "/images/dich-vu/chung-chi-y-te-lao-dong/cap-cuu-ban-dau.jpg",
+  hoiTruongBenhVien: "/images/dich-vu/chung-chi-y-te-lao-dong/hoi-truong-benh-vien.jpg",
+  ungPhoSuCoHoaChat: "/images/dich-vu/an-toan-hoa-chat/ung-pho-su-co-hoa-chat.jpg",
+};
+
 export const images = {
-  hero: unsplash("1541888946425-d81bb19240f5", 1920, 75),
-  about: unsplash("1521791136064-7986c2920216"),
+  hero: real.lopHuanLuyen,
+  about: real.doiNgu,
   whyUs: unsplash("1581093588401-fbb62a02f120"),
   process: unsplash("1581092160562-40aa08e78837"),
-  teamMeeting: unsplash("1600880292203-757bb62b4baf"),
-  ctaBanner: unsplash("1516937941344-00b4e0337589", 1920, 75),
-  contactBanner: unsplash("1504307651254-35680f356dfd"),
-  ogDefault: unsplash("1541888946425-d81bb19240f5", 1200, 75),
+  ctaBanner: real.capCuuBanDau,
+  contactBanner: real.hoiTruongBenhVien,
+  ogDefault: real.lopHuanLuyen,
 } as const;
 
 // Ảnh theo từng dịch vụ (khớp slug trong content/services.ts)
 export const serviceImages: Record<string, { image: string; gallery: string[] }> = {
   "huan-luyen-atvsld": {
-    image: unsplash("1504307651254-35680f356dfd"),
-    gallery: [unsplash("1541888946425-d81bb19240f5")],
+    image: real.lopHuanLuyen,
+    gallery: [real.doiNgu],
   },
   "an-toan-hoa-chat": {
-    image: unsplash("1581093450021-4a7360e9a6b5"),
-    gallery: [unsplash("1581093577421-f561a654a353")],
+    image: real.ungPhoSuCoHoaChat,
+    gallery: [unsplash("1581093450021-4a7360e9a6b5"), unsplash("1581093577421-f561a654a353")],
   },
   "chung-chi-y-te-lao-dong": {
-    image: unsplash("1576091160399-112ba8d25d1d"),
-    gallery: [unsplash("1579154204601-01588f351e67")],
+    image: real.capCuuBanDau,
+    gallery: [real.hoiTruongBenhVien],
   },
   "dao-tao-van-hanh-thiet-bi-nghiem-ngat": {
     image: unsplash("1504328345606-18bbc8c9d7d1"),
@@ -52,12 +60,12 @@ export const serviceImages: Record<string, { image: string; gallery: string[] }>
 
 // Ảnh bìa mẫu cho bài viết Tin tức (dùng luân phiên nếu bài không khai báo cover riêng)
 export const newsCovers = [
-  unsplash("1504307651254-35680f356dfd"),
-  unsplash("1541888946425-d81bb19240f5"),
-  unsplash("1581093450021-4a7360e9a6b5"),
-  unsplash("1504328345606-18bbc8c9d7d1"),
+  real.lopHuanLuyen,
+  real.capCuuBanDau,
+  real.doiNgu,
+  real.ungPhoSuCoHoaChat,
+  real.hoiTruongBenhVien,
   unsplash("1581092334651-ddf26d9a09d0"),
   unsplash("1516937941344-00b4e0337589"),
-  unsplash("1576091160399-112ba8d25d1d"),
   unsplash("1517245386807-bb43f82c33c4"),
 ];

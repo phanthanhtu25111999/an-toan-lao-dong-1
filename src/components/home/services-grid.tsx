@@ -11,7 +11,7 @@ export function ServicesGrid() {
         <SectionHeading
           eyebrow="Dịch vụ"
           title="Dịch vụ nổi bật"
-          subtitle="Giải pháp an toàn lao động toàn diện, đáp ứng nhu cầu đa dạng của doanh nghiệp, nhà máy và công trình xây dựng."
+          subtitle="Giải pháp an toàn lao động toàn diện, đáp ứng nhu cầu đa dạng của doanh nghiệp, nhà máy và khu công nghiệp."
         />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (

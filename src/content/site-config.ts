@@ -11,8 +11,7 @@ export const siteConfig = {
   hotline: "0909 970 044",
   hotlineHref: "tel:0909970044",
   contactPerson: "Ms. Liên",
-  // TODO: thay bằng email thật của công ty khi có
-  email: "info@antoanlaodong1.vn",
+  email: "daotaoantoan1@gmail.com",
   // TODO: thay bằng tên miền thật khi công ty đã đăng ký domain
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://antoanlaodong1.vn",
   socials: {

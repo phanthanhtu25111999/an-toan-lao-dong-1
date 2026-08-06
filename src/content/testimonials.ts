@@ -32,9 +32,9 @@ export const testimonials: Testimonial[] = [
   },
   {
     name: "Anh Khoa",
-    role: "Chỉ huy trưởng công trình, Công ty Xây dựng Thành Phát",
+    role: "Quản lý vận hành, Nhà máy Thực phẩm Phúc An",
     content:
-      "Tư vấn đánh giá rủi ro chi tiết, giúp công trường của chúng tôi kiểm soát tốt hơn các mối nguy trong quá trình thi công.",
+      "Tư vấn đánh giá rủi ro chi tiết, giúp nhà máy chúng tôi kiểm soát tốt hơn các mối nguy trong quá trình sản xuất.",
   },
   {
     name: "Chị Ngọc",

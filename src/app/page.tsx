@@ -4,7 +4,7 @@ import { AboutIntro } from "@/components/home/about-intro";
 import { ServicesGrid } from "@/components/home/services-grid";
 import { WhyChooseUs } from "@/components/home/why-choose-us";
 import { ProcessTimeline } from "@/components/home/process-timeline";
-import { ClientLogos } from "@/components/home/client-logos";
+import { PartnerLogos } from "@/components/home/partner-logos";
 import { Testimonials } from "@/components/home/testimonials";
 import { FaqSection } from "@/components/home/faq-section";
 import { CtaSection } from "@/components/home/cta-section";
@@ -28,7 +28,7 @@ export default function HomePage() {
       <ServicesGrid />
       <WhyChooseUs />
       <ProcessTimeline />
-      <ClientLogos />
+      <PartnerLogos />
       <Testimonials />
       <FaqSection />
       <CtaSection />

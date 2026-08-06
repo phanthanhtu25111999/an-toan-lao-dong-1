@@ -47,7 +47,7 @@ export function HeroSection() {
           </h1>
           <p className="mt-5 max-w-xl text-balance text-lg text-white/90 drop-shadow-sm">
             Đào tạo – Kiểm định – Quan trắc – Tư vấn An toàn chuyên nghiệp cho doanh
-            nghiệp, nhà máy, khu công nghiệp và công trình xây dựng trên toàn quốc.
+            nghiệp, nhà máy và khu công nghiệp trên toàn quốc.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button

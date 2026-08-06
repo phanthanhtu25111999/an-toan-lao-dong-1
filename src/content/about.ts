@@ -5,7 +5,7 @@ export const companyHistory = {
   paragraphs: [
     "Công ty TNHH Huấn Luyện An Toàn 1 được thành lập với sứ mệnh đồng hành cùng doanh nghiệp trong công tác an toàn, vệ sinh lao động — lĩnh vực ngày càng được các nhà máy, khu công nghiệp và đơn vị sản xuất tại Việt Nam đặc biệt quan tâm.",
     "Từ những ngày đầu, chúng tôi tập trung xây dựng đội ngũ giảng viên, chuyên gia có chuyên môn vững và kinh nghiệm thực tế, đồng thời không ngừng mở rộng phạm vi dịch vụ từ huấn luyện an toàn lao động sang kiểm định thiết bị, quan trắc môi trường lao động và tư vấn an toàn toàn diện.",
-    "Đến nay, công ty đã đồng hành cùng nhiều doanh nghiệp, nhà máy, công trình xây dựng trên nhiều lĩnh vực, góp phần xây dựng môi trường làm việc an toàn hơn cho người lao động.",
+    "Đến nay, công ty đã đồng hành cùng nhiều doanh nghiệp, nhà máy trên nhiều lĩnh vực sản xuất, góp phần xây dựng môi trường làm việc an toàn hơn cho người lao động.",
   ],
 };
 

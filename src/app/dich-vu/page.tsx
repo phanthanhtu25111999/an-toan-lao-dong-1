@@ -22,7 +22,7 @@ export default function ServicesPage() {
       <StructuredData data={breadcrumbJsonLd([{ name: "Dịch vụ", path: "/dich-vu" }])} />
       <PageHero
         title="Dịch vụ của chúng tôi"
-        description="Giải pháp an toàn lao động toàn diện cho doanh nghiệp, nhà máy, khu công nghiệp và công trình xây dựng."
+        description="Giải pháp an toàn lao động toàn diện cho doanh nghiệp, nhà máy và khu công nghiệp."
         image={images.ctaBanner}
         breadcrumb={[{ name: "Dịch vụ", path: "/dich-vu" }]}
       />
