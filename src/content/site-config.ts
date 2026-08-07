@@ -19,7 +19,7 @@ export const siteConfig = {
     zalo: "#",
     youtube: "#",
   },
-  workingHours: "Thứ 2 - Thứ 7: 7:30 - 17:30",
+  workingHours: "Thứ 2 - Thứ 6: 8:00 - 17:00",
 } as const;
 
 export type SiteConfig = typeof siteConfig;

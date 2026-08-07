@@ -109,7 +109,18 @@ export function Footer() {
           <p>
             © {year} {siteConfig.legalName}. Đã đăng ký bản quyền.
           </p>
-          <p>Thiết kế &amp; phát triển bởi đội ngũ kỹ thuật.</p>
+          <p>
+            Thiết kế &amp; phát triển bởi{" "}
+            <a
+              href="https://www.facebook.com/chophandog/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium hover:text-primary"
+            >
+              Tu Phan
+            </a>
+            .
+          </p>
         </Container>
       </div>
     </footer>
