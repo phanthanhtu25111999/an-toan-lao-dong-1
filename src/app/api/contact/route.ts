@@ -27,10 +27,11 @@ export async function POST(request: Request) {
   console.log("[contact-form] Yêu cầu tư vấn mới:", data);
 
   if (resend) {
+    const to = process.env.CONTACT_TO_EMAIL || siteConfig.email;
     try {
-      await resend.emails.send({
+      const { data: sent, error } = await resend.emails.send({
         from: "Website Huấn Luyện An Toàn 1 <onboarding@resend.dev>",
-        to: siteConfig.email,
+        to,
         replyTo: data.email || undefined,
         subject: `Yêu cầu tư vấn mới từ ${data.name}`,
         html: `
@@ -44,6 +45,11 @@ export async function POST(request: Request) {
           <p>${escapeHtml(data.message).replace(/\n/g, "<br/>")}</p>
         `,
       });
+      if (error) {
+        console.error("[contact-form] Resend trả lỗi:", error);
+      } else {
+        console.log(`[contact-form] Đã gửi email tới ${to}, id=${sent?.id}`);
+      }
     } catch (error) {
       console.error("[contact-form] Gửi email thất bại:", error);
     }
