@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -56,6 +57,22 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
+        {process.env.NEXT_PUBLIC_GOOGLE_ADS_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-ads-gtag" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}');
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
