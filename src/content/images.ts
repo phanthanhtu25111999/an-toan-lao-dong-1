@@ -17,6 +17,7 @@ const real = {
 };
 
 export const images = {
+  logo: "/images/logo/logo.png",
   hero: real.lopHuanLuyen,
   about: real.doiNgu,
   whyUs: unsplash("1581093588401-fbb62a02f120"),

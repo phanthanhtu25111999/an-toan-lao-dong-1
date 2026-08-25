@@ -50,7 +50,7 @@ export function organizationJsonLd() {
     name: siteConfig.name,
     legalName: siteConfig.legalName,
     url: siteConfig.url,
-    logo: images.ogDefault,
+    logo: new URL(images.logo, siteConfig.url).toString(),
     description: siteConfig.description,
     address: {
       "@type": "PostalAddress",
@@ -144,7 +144,7 @@ export function articleJsonLd(post: Post) {
       name: siteConfig.name,
       logo: {
         "@type": "ImageObject",
-        url: images.ogDefault,
+        url: new URL(images.logo, siteConfig.url).toString(),
       },
     },
   };

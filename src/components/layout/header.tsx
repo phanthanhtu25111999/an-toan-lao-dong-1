@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { Phone, ShieldCheck } from "lucide-react";
+import { Phone } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -18,6 +19,7 @@ import { MobileNav } from "@/components/layout/mobile-nav";
 import { MegaMenu } from "@/components/layout/mega-menu";
 import { Container } from "@/components/shared/container";
 import { siteConfig } from "@/content/site-config";
+import { images } from "@/content/images";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -39,9 +41,14 @@ export function Header() {
     >
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2 font-heading font-bold">
-          <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <ShieldCheck className="size-5" />
-          </span>
+          <Image
+            src={images.logo}
+            alt={siteConfig.shortName}
+            width={40}
+            height={40}
+            className="size-9 object-contain"
+            priority
+          />
           <span className="hidden text-sm leading-tight sm:flex sm:flex-col">
             <span className="text-base font-bold">{siteConfig.shortName}</span>
             <span className="text-[11px] font-normal text-muted-foreground">

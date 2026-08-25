@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
-import { MessageCircle, Phone, MapPin, Mail, ShieldCheck } from "lucide-react";
+import { MessageCircle, Phone, MapPin, Mail } from "lucide-react";
 import { FacebookIcon, YoutubeIcon } from "@/components/icons/social-icons";
 import { Container } from "@/components/shared/container";
 import { siteConfig } from "@/content/site-config";
+import { images } from "@/content/images";
 import { services } from "@/content/services";
 
 const quickLinks = [
@@ -21,9 +23,13 @@ export function Footer() {
       <Container className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-4">
           <Link href="/" className="flex items-center gap-2 font-heading font-bold">
-            <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <ShieldCheck className="size-5" />
-            </span>
+            <Image
+              src={images.logo}
+              alt={siteConfig.shortName}
+              width={40}
+              height={40}
+              className="size-9 object-contain"
+            />
             <span className="text-base font-bold">{siteConfig.shortName}</span>
           </Link>
           <p className="text-sm text-muted-foreground">{siteConfig.description}</p>
