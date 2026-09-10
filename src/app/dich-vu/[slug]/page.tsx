@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { CheckCircle2, Users } from "lucide-react";
+import { CheckCircle2, Users, AlertTriangle } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -107,6 +107,82 @@ export default async function ServiceDetailPage({
         </Container>
       </section>
 
+      {service.trainingGroups && service.trainingGroups.length > 0 && (
+        <section className="bg-secondary/30 py-20 sm:py-24">
+          <Container className="flex flex-col gap-12">
+            <SectionHeading
+              eyebrow="Chương trình đào tạo"
+              title="Chương trình huấn luyện chuẩn cho 6 nhóm đối tượng"
+              subtitle="Đáp ứng đầy đủ khung nội dung pháp lý cho từng vị trí làm việc trong doanh nghiệp."
+            />
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              {service.trainingGroups.map((group) => (
+                <Card key={group.name} className="h-full py-6">
+                  <CardContent className="flex flex-col gap-3">
+                    <h3 className="font-heading text-base font-semibold">{group.name}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      <span className="font-medium text-foreground">Đối tượng: </span>
+                      {group.audience}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <span className="font-medium text-foreground">Nội dung: </span>
+                      {group.content}
+                    </p>
+                    <p className="text-sm font-medium text-primary">{group.duration}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {service.penaltyInfo && (
+        <section className="py-20 sm:py-24">
+          <Container className="flex flex-col gap-10">
+            <SectionHeading
+              eyebrow="Cảnh báo pháp lý"
+              title="Mức phạt khi doanh nghiệp không huấn luyện ATVSLĐ"
+            />
+            <p className="text-muted-foreground sm:text-lg">{service.penaltyInfo.intro}</p>
+
+            <div className="overflow-x-auto rounded-xl border">
+              <table className="w-full min-w-[560px] text-left text-sm">
+                <thead className="bg-secondary/50">
+                  <tr>
+                    <th className="p-4 font-heading font-semibold">Số lượng người lao động vi phạm</th>
+                    <th className="p-4 font-heading font-semibold">Phạt tiền cá nhân</th>
+                    <th className="p-4 font-heading font-semibold">Phạt tiền tổ chức/doanh nghiệp</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {service.penaltyInfo.rows.map((row) => (
+                    <tr key={row.range} className="border-t">
+                      <td className="p-4 font-medium">{row.range}</td>
+                      <td className="p-4 text-muted-foreground">{row.individual}</td>
+                      <td className="p-4 text-muted-foreground">{row.organization}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm italic text-muted-foreground">{service.penaltyInfo.note}</p>
+
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {service.penaltyInfo.consequences.map((item) => (
+                <div key={item.title} className="flex items-start gap-3 rounded-xl border bg-card p-4">
+                  <AlertTriangle className="mt-0.5 size-5 shrink-0 text-destructive" />
+                  <div className="flex flex-col gap-1">
+                    <h3 className="font-heading text-sm font-semibold">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
       <section className="bg-secondary/30 py-20 sm:py-24">
         <Container className="flex flex-col gap-12">
           <SectionHeading eyebrow="Quy trình" title="Quy trình thực hiện" />
@@ -163,6 +239,26 @@ export default async function ServiceDetailPage({
           )}
         </Container>
       </section>
+
+      {service.whyChooseUs && service.whyChooseUs.length > 0 && (
+        <section className="py-20 sm:py-24">
+          <Container className="flex flex-col gap-12">
+            <SectionHeading eyebrow="Vì sao chọn chúng tôi" title="Lý do chọn khóa đào tạo của chúng tôi" />
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {service.whyChooseUs.map((item, index) => (
+                <AnimatedSection key={item.title} delay={(index % 3) * 0.08}>
+                  <Card className="h-full py-6">
+                    <CardContent className="flex flex-col gap-2">
+                      <h3 className="font-heading text-base font-semibold">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.description}</p>
+                    </CardContent>
+                  </Card>
+                </AnimatedSection>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       <section className="bg-secondary/30 py-20 sm:py-24">
         <Container className="mx-auto flex max-w-3xl flex-col gap-10">

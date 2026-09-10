@@ -19,6 +19,36 @@ export type ServiceStep = {
   description: string;
 };
 
+export type PenaltyRow = {
+  range: string;
+  individual: string;
+  organization: string;
+};
+
+export type PenaltyConsequence = {
+  title: string;
+  description: string;
+};
+
+export type PenaltyInfo = {
+  intro: string;
+  rows: PenaltyRow[];
+  note: string;
+  consequences: PenaltyConsequence[];
+};
+
+export type TrainingGroup = {
+  name: string;
+  audience: string;
+  content: string;
+  duration: string;
+};
+
+export type WhyChooseUsItem = {
+  title: string;
+  description: string;
+};
+
 export type Service = {
   slug: string;
   icon: LucideIcon;
@@ -30,6 +60,9 @@ export type Service = {
   benefits: string[];
   faq: ServiceFaqItem[];
   legalNote?: string;
+  penaltyInfo?: PenaltyInfo;
+  trainingGroups?: TrainingGroup[];
+  whyChooseUs?: WhyChooseUsItem[];
 };
 
 export const services: Service[] = [
@@ -78,6 +111,96 @@ export const services: Service[] = [
     ],
     legalNote:
       "Thông tin mang tính tham khảo. Quy định pháp luật có thể thay đổi theo thời điểm — vui lòng liên hệ để được tư vấn cập nhật mới nhất.",
+    penaltyInfo: {
+      intro:
+        "Nhiều doanh nghiệp vẫn coi công tác huấn luyện an toàn lao động là chi phí phát sinh hoặc chỉ làm mang tính đối phó. Tuy nhiên, căn cứ Nghị định 12/2022/NĐ-CP quy định xử phạt vi phạm hành chính trong lĩnh vực lao động, bảo hiểm xã hội, mức phạt đối với hành vi không tổ chức huấn luyện ATVSLĐ là rất nghiêm khắc.",
+      rows: [
+        { range: "Từ 01 đến 10 người", individual: "5.000.000 – 10.000.000 VNĐ", organization: "10.000.000 – 20.000.000 VNĐ" },
+        { range: "Từ 11 đến 50 người", individual: "10.000.000 – 20.000.000 VNĐ", organization: "20.000.000 – 40.000.000 VNĐ" },
+        { range: "Từ 51 đến 100 người", individual: "20.000.000 – 30.000.000 VNĐ", organization: "40.000.000 – 60.000.000 VNĐ" },
+        { range: "Từ 101 đến 300 người", individual: "30.000.000 – 40.000.000 VNĐ", organization: "60.000.000 – 80.000.000 VNĐ" },
+        { range: "Từ 301 người trở lên", individual: "40.000.000 – 50.000.000 VNĐ", organization: "80.000.000 – 100.000.000 VNĐ" },
+      ],
+      note: "Mức phạt tiền áp dụng đối với tổ chức/doanh nghiệp bằng 02 lần mức phạt áp dụng đối với cá nhân (Điều 25, Nghị định 12/2022/NĐ-CP).",
+      consequences: [
+        {
+          title: "Tạm dừng hoạt động sản xuất",
+          description: "Khi xảy ra tai nạn lao động nghiêm trọng, cơ quan chức năng có quyền đình chỉ hoạt động để điều tra nếu phát hiện lao động chưa qua huấn luyện.",
+        },
+        {
+          title: "Bồi thường tai nạn lao động",
+          description: "Doanh nghiệp phải thanh toán chi phí y tế và bồi thường ít nhất 30 tháng tiền lương nếu người lao động suy giảm khả năng lao động từ 81% trở lên hoặc chết do lỗi không được huấn luyện an toàn.",
+        },
+        {
+          title: "Trách nhiệm hình sự",
+          description: "Theo Điều 295 Bộ luật Hình sự 2015 (sửa đổi, bổ sung 2017), người có trách nhiệm có thể bị truy cứu trách nhiệm hình sự với khung hình phạt lên đến 12 năm tù nếu vi phạm gây hậu quả nghiêm trọng.",
+        },
+        {
+          title: "Tổn hại uy tín doanh nghiệp",
+          description: "Doanh nghiệp vi phạm bị đưa vào danh sách vi phạm, ảnh hưởng tiêu cực đến khả năng trúng thầu và hình ảnh thương hiệu trên thị trường.",
+        },
+      ],
+    },
+    trainingGroups: [
+      {
+        name: "Nhóm 1: Người làm công tác quản lý",
+        audience: "Giám đốc, Phó giám đốc, Trưởng/Phó phòng ban, Quản đốc phân xưởng, cán bộ quản lý trực tiếp.",
+        content: "Hệ thống chính sách, pháp luật về ATVSLĐ; nghiệp vụ quản lý và tổ chức thực hiện công tác ATVSLĐ tại cơ sở; phân định trách nhiệm.",
+        duration: "16 giờ — cấp Giấy chứng nhận, thời hạn 02 năm.",
+      },
+      {
+        name: "Nhóm 2: Cán bộ chuyên trách, phụ trách ATVSLĐ",
+        audience: "Cán bộ chuyên trách hoặc bán chuyên trách về ATVSLĐ, người trực tiếp giám sát an toàn tại công trường/nhà máy.",
+        content: "Kiến thức tổng quan; kỹ thuật an toàn, vệ sinh lao động; nghiệp vụ tự kiểm tra, điều tra tai nạn lao động, xây dựng kế hoạch ứng phó sự cố.",
+        duration: "48 giờ — cấp Chứng chỉ, thời hạn 02 năm.",
+      },
+      {
+        name: "Nhóm 3: Người làm công việc có yêu cầu nghiêm ngặt về ATVSLĐ",
+        audience: "Người làm việc trên cao, trong không gian hạn chế, vận hành thiết bị nâng, thiết bị áp lực, thợ điện, thợ hàn, hóa chất...",
+        content: "Kiến thức chuyên sâu về quy trình an toàn đặc thù; nhận diện rủi ro; sử dụng phương tiện bảo vệ cá nhân; xử lý tình huống khẩn cấp.",
+        duration: "24 giờ — cấp Thẻ an toàn, thời hạn 02 năm.",
+      },
+      {
+        name: "Nhóm 4: Người lao động không thuộc các nhóm trên",
+        audience: "Nhân viên văn phòng, công nhân sản xuất dây chuyền, người học nghề, tập nghề, thử việc.",
+        content: "Kiến thức cơ bản về ATVSLĐ; biển báo, nội quy an toàn tại nơi làm việc; quy trình thoát hiểm và sơ cấp cứu ban đầu.",
+        duration: "16 giờ — ghi vào Sổ theo dõi huấn luyện tại cơ sở.",
+      },
+      {
+        name: "Nhóm 5: Nhân viên y tế cơ sở",
+        audience: "Y sĩ, bác sĩ, điều dưỡng làm công tác y tế tại nhà máy, doanh nghiệp.",
+        content: "Y học lao động, bệnh nghề nghiệp, phương pháp quản lý hồ sơ sức khỏe người lao động, kỹ năng sơ cấp cứu tai nạn lao động.",
+        duration: "56 giờ — cấp Giấy chứng nhận, thời hạn 02 năm.",
+      },
+      {
+        name: "Nhóm 6: An toàn vệ sinh viên",
+        audience: "Người lao động trực tiếp được bầu làm An toàn vệ sinh viên tại các tổ/đội sản xuất.",
+        content: "Bổ sung kiến thức chuyên môn, kỹ năng và phương pháp hoạt động của An toàn vệ sinh viên ngoài nội dung đã học ở Nhóm 4.",
+        duration: "04 giờ bổ sung ngoài thời gian huấn luyện Nhóm 4 — cấp Giấy chứng nhận.",
+      },
+    ],
+    whyChooseUs: [
+      {
+        title: "Đơn vị được cấp phép",
+        description: "Hồ sơ pháp lý đầy đủ, chứng chỉ và thẻ an toàn có giá trị sử dụng trên toàn quốc.",
+      },
+      {
+        title: "Phương pháp giảng dạy thực tế",
+        description: "30% lý thuyết khung - 70% thực hành, tình huống mô phỏng trực quan giúp học viên dễ nhớ, dễ áp dụng.",
+      },
+      {
+        title: "Hình thức học linh hoạt",
+        description: "Tổ chức trực tiếp tại nhà máy/văn phòng doanh nghiệp (inhouse), đào tạo tại trung tâm hoặc hỗ trợ học lý thuyết qua nền tảng online để giảm thiểu thời gian ngừng sản xuất.",
+      },
+      {
+        title: "Đội ngũ giảng viên hàng đầu",
+        description: "Các chuyên gia, nguyên thanh tra lao động có nhiều năm kinh nghiệm thực chiến trong công tác quản lý an toàn.",
+      },
+      {
+        title: "Chi phí tối ưu",
+        description: "Chính sách chiết khấu từ 10% – 30% cho các hợp đồng đào tạo số lượng lớn hoặc đăng ký theo gói doanh nghiệp.",
+      },
+    ],
   },
   {
     slug: "an-toan-hoa-chat",
